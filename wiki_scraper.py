@@ -26,12 +26,15 @@ def get_citations_needed_report(page):
     with open('citations_report.txt', 'w') as file:
         # Iterate over the citations and retrieve their parent <p> tags
         for citation in citations_needed:
-            paragraphs = citation.find_parent('p')
-            for paragraph in paragraphs:
-                p = paragraph.text.strip()
-                if p:
-                    file.write(f"{p}\n")
-                    print()
+            paragraphs = citation.find_parent('p').text.strip()
+            file.write(f"{paragraphs}\n")
+            print(f"{paragraphs}\n")
+            file.write("\n")
+            print("\n")
+            file.write("***************")
+            print("***************")
+            file.write("\n")
+            print("\n")
     
     print("report is ready inside citations_report.txt file.")
     
